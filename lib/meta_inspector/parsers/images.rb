@@ -44,7 +44,11 @@ module MetaInspector
           imgs_with_size.uniq! { |url, width, height| url }
           if @download_images
             imgs_with_size.map! do |url, width, height|
-              width, height = FastImage.size(url) if width.nil? || height.nil?
+              begin
+                width, height = FastImage.size(url) if width.nil? || height.nil?
+              rescue
+                width, height = 0, 0 if width.nil? || height.nil?
+              end
               [url, width.to_i, height.to_i]
             end
           else
