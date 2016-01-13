@@ -57,7 +57,6 @@ module MetaInspector
               [url, width.to_i, height.to_i]
             end
           end
-          byebug
           imgs_with_size.sort_by { |url, width, height| -(width.to_i * height.to_i) }
         end
       end
