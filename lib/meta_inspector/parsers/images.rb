@@ -103,7 +103,7 @@ module MetaInspector
       end
 
       def blacklist
-        Regexp.union 'banner', 'background', 'empty', 'sprite', 'base64', '.gif', '.tiff'
+        Regexp.union 'banner', 'background', 'empty', 'sprite', 'base64', '.tiff'
       end
 
     end
